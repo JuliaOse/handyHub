@@ -130,7 +130,9 @@ function SignInForm() {
               height={500}
             />
           </CardTitle>
-          <CardDescription>Sign In</CardDescription>
+          <CardDescription className="text-black">
+            Sign In to Continue
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-3">
