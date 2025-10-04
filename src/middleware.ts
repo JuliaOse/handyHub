@@ -25,7 +25,14 @@ export async function middleware(req: NextRequest) {
 
   //   const protectedRoutes = ["/projects", "/inbox", "/dashboard", "profile", "profile-update"];
 
-  const publicRoutes = ["/", "/landing", "/auth", "/sign-up", "/signup-sp"];
+  const publicRoutes = [
+    "/",
+    "/landing",
+    "/auth",
+    "/sign-up",
+    "/signup-sp",
+    "/search-page",
+  ];
 
   if (!session && !publicRoutes.includes(req.nextUrl.pathname)) {
     return NextResponse.redirect(new URL("/auth", req.url));
@@ -35,11 +42,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/dashboard/:path*",
-    "/projects/:path*",
-    "/inbox/:path*",
-    "/profile/:path*",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
-
